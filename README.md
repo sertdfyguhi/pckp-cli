@@ -1,2 +1,2 @@
-# pckp-cli
-python cli for pckp
+# spck-cli
+python cli for spck

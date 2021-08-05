@@ -12,13 +12,13 @@ URLS = {
     "LOGIN": f"{URL}/api/users/login",
     "SEARCH": f"{URL}/api/search"
 }
-HELP = '''Usage: pckp [subcommand] [other arguments]
+HELP = '''Usage: spck [subcommand] [other arguments]
 
 Package manager for SPWN.
 
 Subcommands:
   help, -h                         Help.
-  version, -v                      Version of pckp.
+  version, -v                      Version of spck.
   install [package]                Installs a package.
   uninstall [package]              Uninstalls a package.
   register                         Registers a new account.
@@ -48,13 +48,13 @@ elif args[0] == 'register':
 elif args[0] == 'login':
     helper.register(URLS['LOGIN'])
 elif args[0] == 'publish':
-    if not exists('pckp.json'):
-        err('pckp.json does not exist in current working directory.')
-    with open('pckp.json', 'r') as f:
+    if not exists('spck.json'):
+        err('spck.json does not exist in current working directory.')
+    with open('spck.json', 'r') as f:
         try:
             json = loads(f.read())
         except JSONDecodeError:
-            err('Invalid JSON in pckp.json')
+            err('Invalid JSON in spck.json')
 
         helper.publish(json, URLS['PUBLISH'])
 elif args[0] == 'search':
